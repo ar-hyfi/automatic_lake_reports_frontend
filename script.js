@@ -14,17 +14,13 @@ const lakeData = {
     }
 };
 
-// Get lake options from URL parameters
 document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
     const lakeOptionsDiv = document.getElementById('lake-options');
 
-    // If "all" is in the URL, display all lakes
-    const showAllLakes = params.has('all');
-
-    // Generate options dynamically
+    // Generate options dynamically based on the URL or show all lakes
     for (const lake in lakeData) {
-        if (showAllLakes || params.has(lake)) {
+        if (params.has(lake) || !params.toString()) {  // Show specific or all lakes by default
             // Create label for lake frequency selection
             const lakeLabel = document.createElement('label');
             lakeLabel.setAttribute('for', `${lake}-frequency`);
@@ -56,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
 document.getElementById('lake-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -76,7 +71,7 @@ document.getElementById('lake-form').addEventListener('submit', function (e) {
     }
 
     // Example POST request to Google Apps Script
-    const url = "https://script.google.com/a/macros/hyfi.io/s/AKfycbzWm3E2uxOfK6EQJV-fwceYWqAn-hcTIXJglesnh0NnPkuCpmBjpetx-b7CKNwtTMv0/exec";  // Replace with your Google Apps Script Web App URL
+    const url = "YOUR_GOOGLE_APPS_SCRIPT_URL";  // Replace with your Google Apps Script Web App URL
 
     fetch(url, {
         method: "POST",
@@ -96,10 +91,3 @@ document.getElementById('lake-form').addEventListener('submit', function (e) {
         alert("Error: " + error);
     });
 });
-
-// Email validation function (not changed)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-}
-
