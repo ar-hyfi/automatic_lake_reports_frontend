@@ -73,3 +73,13 @@ button:hover {
     height: auto;
     margin-bottom: 20px;
 }
+
+#lake-frequencies label {
+    display: block;
+    margin-top: 10px;
+}
+
+#lake-frequencies select {
+    display: block;
+    margin-bottom: 10px;
+}

@@ -19,15 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const lakeSelectionDiv = document.getElementById('lake-selection');
     
     // If no specific lakes are provided in the URL, show all lakes
-    const selectedLakes = params.keys().length === 0 ? Object.keys(lakeData) : Array.from(params.keys());
+    const selectedLakes = params.keys().next().done ? Object.keys(lakeData) : Array.from(params.keys());
 
-        // Ensure at least one lake is selected
-        if (selectedLakes.length === 0) {
-            alert("Please select at least one lake.");
-            return;
-        }
-
-        
     // Generate checkboxes dynamically
     selectedLakes.forEach(lake => {
         if (lakeData[lake]) {
