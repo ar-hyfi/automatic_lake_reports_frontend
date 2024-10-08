@@ -103,7 +103,11 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
             "Content-Type": "application/json"
         }
     }).then(response => {
-        alert("Form Submitted!");
+        // Display Thank You message
+        document.querySelector('.form-box').innerHTML = `
+            <h1>Thank You!</h1>
+            <p>Your preferences have been successfully submitted.</p>
+        `;
     }).catch(error => {
         alert("Error: " + error);
     });

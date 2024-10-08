@@ -83,3 +83,37 @@ button:hover {
     display: block;
     margin-bottom: 10px;
 }
+
+form div {
+    padding: 10px 0; /* Add padding to each form element */
+}
+
+label {
+    font-weight: bold;
+    color: #bc44c4;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #bc44c4;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #bc44c4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9a3aa5;
+}
