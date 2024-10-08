@@ -14,6 +14,33 @@ const lakeData = {
     }
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const lakeSelectionDiv = document.getElementById('lake-selection');
+    
+    // If no specific lakes are provided in the URL, show all lakes
+    const selectedLakes = params.keys().length === 0 ? Object.keys(lakeData) : Array.from(params.keys());
+
+        // Ensure at least one lake is selected
+        if (selectedLakes.length === 0) {
+            alert("Please select at least one lake.");
+            return;
+        }
+
+        
+    // Generate checkboxes dynamically
+    selectedLakes.forEach(lake => {
+        if (lakeData[lake]) {
+            const checkboxDiv = document.createElement('div');
+            checkboxDiv.innerHTML = `
+                <input type="checkbox" id="${lake}" name="lakes" value="${lake}">
+                <label for="${lake}">${lakeData[lake].name}</label>
+            `;
+            lakeSelectionDiv.appendChild(checkboxDiv);
+        }
+    });
+});
+
 document.getElementById('lake-selection-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -26,7 +53,6 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
         alert("Please enter a valid email address.");
         return;
     }
-    
 
     const selectedLakes = Array.from(document.querySelectorAll('input[name="lakes"]:checked')).map(lake => lake.value);
     const lakeFrequenciesDiv = document.getElementById('lake-frequencies');
