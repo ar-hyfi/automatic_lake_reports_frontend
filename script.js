@@ -19,9 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
     const lakeOptionsDiv = document.getElementById('lake-options');
 
+    // If "all" is in the URL, display all lakes
+    const showAllLakes = params.has('all');
+
     // Generate options dynamically
     for (const lake in lakeData) {
-        if (params.has(lake)) {
+        if (showAllLakes || params.has(lake)) {
             // Create label for lake frequency selection
             const lakeLabel = document.createElement('label');
             lakeLabel.setAttribute('for', `${lake}-frequency`);
@@ -52,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
 
 document.getElementById('lake-form').addEventListener('submit', function (e) {
     e.preventDefault();
