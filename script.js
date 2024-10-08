@@ -28,14 +28,12 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
     }
     
 
-    // Get selected lakes from checkboxes
     const selectedLakes = Array.from(document.querySelectorAll('input[name="lakes"]:checked')).map(lake => lake.value);
     const lakeFrequenciesDiv = document.getElementById('lake-frequencies');
 
     // Clear any existing content
     lakeFrequenciesDiv.innerHTML = '';
 
-    // Generate frequency options for each selected lake and store the plus code
     selectedLakes.forEach(lake => {
         const lakeLabel = document.createElement('label');
         lakeLabel.textContent = `${lakeData[lake].name} Frequency:`;

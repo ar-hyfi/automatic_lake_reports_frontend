@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Avenir:wght@400;600&display=swap');
-
 body {
     font-family: 'Avenir', sans-serif;
     margin: 0;
@@ -18,23 +16,17 @@ body {
     justify-content: center;
 }
 
-.logo {
-    width: 100px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
 .form-box {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 400px;
-    text-align: center;
 }
 
 h1 {
     color: #bc44c4;
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -42,6 +34,7 @@ h1 {
     font-size: 14px;
     color: #555;
     margin-bottom: 20px;
+    text-align: left;
 }
 
 form {
@@ -51,17 +44,13 @@ form {
 }
 
 label {
-    margin-top: 10px;
     font-weight: bold;
     color: #bc44c4;
     text-align: left;
 }
 
-input, select {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #bc44c4;
-    border-radius: 5px;
+input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 button {
@@ -76,19 +65,6 @@ button {
 
 button:hover {
     background-color: #9a3aa5;
-}
-
-
-.lake-wrapper {
-    margin-bottom: 20px;
-    display: block;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #bc44c4;
 }
 
 
