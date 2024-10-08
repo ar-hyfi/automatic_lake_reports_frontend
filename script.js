@@ -94,7 +94,7 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
     }
 
     // Example POST request to send data to your backend
-    const url = "https://script.google.com/a/macros/hyfi.io/s/AKfycbzWm3E2uxOfK6EQJV-fwceYWqAn-hcTIXJglesnh0NnPkuCpmBjpetx-b7CKNwtTMv0/exec";  // Replace with your actual URL
+    const url = "https://script.google.com/a/macros/hyfi.io/s/AKfycby2Gy9Ph9kUq2UrdFIDXFOk2BA4ZjWrtf_DOuVU318a9_bleZkRnBOq5f0JGpHhxYOQ/exec";  // Replace with your actual URL
 
     fetch(url, {
         method: "POST",
