@@ -7,49 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="images/logo.png" alt="Hyfi Logo" class="logo">
-    </header>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Hyfi Logo" class="logo">
+        </header>
 
-    <h1>Lake Report Signup</h1>
-    <p class="explainer">
-        Hyfi is a local, Michigan-based water level monitoring company that offers daily, weekly, or monthly reports for your lake level. 
-        Stay informed about your favorite lakes with real-time updates tailored to your needs.
-    </p>
+        <div class="form-box">
+            <h1>Lake Report Signup</h1>
+            <p class="explainer">
+                Hyfi is a local, Michigan-based water level monitoring company that offers daily, weekly, or monthly reports for your lake level. 
+                Stay informed about your favorite lakes with real-time updates tailored to your needs.
+            </p>
 
-    <form id="lake-form">
-        <!-- First Name -->
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+            <form id="lake-form">
+                <!-- First Name -->
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
 
-        <!-- Last Name -->
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                <!-- Last Name -->
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
 
-        <!-- Email -->
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <!-- Email -->
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-        <!-- Select Lake -->
-        <label for="lake">Select Lake(s):</label>
-        <select id="lake" name="lake" multiple required>
-            <option value="rainbow">Rainbow Lake</option>
-            <option value="silver">Silver Lake</option>
-            <option value="higgins">Higgins Lake</option>
-        </select>
+                <!-- Lake options and frequencies -->
+                <div id="lake-options"></div>
 
-        <!-- Select Frequency -->
-        <label for="frequency">Select Frequency:</label>
-        <select id="frequency" name="frequency" multiple required>
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-        </select>
-
-        <button type="submit">Submit</button>
-    </form>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
