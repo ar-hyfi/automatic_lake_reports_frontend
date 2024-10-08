@@ -6,7 +6,6 @@
     <title>Lake Report Signup</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/logo.png" type="image/png">
-
 </head>
 <body>
     <div class="container">
@@ -17,25 +16,23 @@
         <div class="form-box">
             <h1>Lake Report Signup</h1>
             <p class="explainer">
-                Hyfi is a local, Michigan-based water level monitoring company offering daily, weekly, or monthly reports for your favorite lakes.
+                Hyfi is a Michigan-based company offering real-time water level monitoring with daily, weekly, or monthly reports. Start by selecting the lakes you'd like to monitor.
             </p>
 
-            <form id="lake-form">
-                <!-- First Name -->
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+            <!-- Step 1: Select Lakes -->
+            <form id="lake-selection-form">
+                <label for="lakes">Select Lake(s):</label>
+                <select id="lakes" name="lakes" multiple required>
+                    <option value="rainbow">Rainbow Lake</option>
+                    <option value="silver">Silver Lake</option>
+                    <option value="higgins">Higgins Lake</option>
+                </select>
+                <button type="submit">Next</button>
+            </form>
 
-                <!-- Last Name -->
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
-
-                <!-- Email -->
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-                <!-- Lake options and frequencies -->
-                <div id="lake-options"></div>
-
+            <!-- Step 2: Select Frequency (Hidden initially) -->
+            <form id="frequency-selection-form" style="display: none;">
+                <div id="lake-frequencies"></div>
                 <button type="submit">Submit</button>
             </form>
         </div>
