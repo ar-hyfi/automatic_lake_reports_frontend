@@ -117,3 +117,9 @@ button {
 button:hover {
     background-color: #9a3aa5;
 }
+
+/* Ensure checkboxes and labels have no additional padding */
+#lake-selection input[type="checkbox"] {
+    margin-right: 10px; /* Just space between the checkbox and label */
+    margin-bottom: 0;
+}
