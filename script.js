@@ -17,7 +17,19 @@ const lakeData = {
 document.getElementById('lake-selection-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const selectedLakes = Array.from(document.getElementById('lakes').selectedOptions).map(option => option.value);
+    // Get email input value
+    const emailInput = document.getElementById('email');
+    const email = emailInput.value;
+
+    // Validate email before proceeding
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    
+
+    // Get selected lakes from checkboxes
+    const selectedLakes = Array.from(document.querySelectorAll('input[name="lakes"]:checked')).map(lake => lake.value);
     const lakeFrequenciesDiv = document.getElementById('lake-frequencies');
 
     // Clear any existing content
@@ -65,7 +77,7 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
     }
 
     // Example POST request to send data to your backend
-    const url = "YOUR_GOOGLE_APPS_SCRIPT_URL";  // Replace with your actual URL
+    const url = "https://script.google.com/a/macros/hyfi.io/s/AKfycbzWm3E2uxOfK6EQJV-fwceYWqAn-hcTIXJglesnh0NnPkuCpmBjpetx-b7CKNwtTMv0/exec";  // Replace with your actual URL
 
     fetch(url, {
         method: "POST",
@@ -79,3 +91,9 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
         alert("Error: " + error);
     });
 });
+
+// Email validation function
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}

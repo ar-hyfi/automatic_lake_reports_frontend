@@ -19,14 +19,39 @@
                 Hyfi is a Michigan-based company offering real-time water level monitoring with daily, weekly, or monthly reports. Start by selecting the lakes you'd like to monitor.
             </p>
 
+            <!-- Step 1: Name, Email, and Lake Selection -->
+            <form id="lake-selection-form">
+                <!-- Name Input -->
+                <div>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                </div>
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                </div>
+
+                <!-- Email Input -->
+                <div>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
             <!-- Step 1: Select Lakes -->
             <form id="lake-selection-form">
-                <label for="lakes">Select Lake(s):</label>
-                <select id="lakes" name="lakes" multiple required>
-                    <option value="rainbow">Rainbow Lake</option>
-                    <option value="silver">Silver Lake</option>
-                    <option value="higgins">Higgins Lake</option>
-                </select>
+                <label>Select Lake(s):</label>
+                <div>
+                    <input type="checkbox" id="rainbow" name="lakes" value="rainbow">
+                    <label for="rainbow">Rainbow Lake</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="silver" name="lakes" value="silver">
+                    <label for="silver">Silver Lake</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="higgins" name="lakes" value="higgins">
+                    <label for="higgins">Higgins Lake</label>
+                </div>
                 <button type="submit">Next</button>
             </form>
 
