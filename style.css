@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Avenir:wght@400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Avenir', sans-serif;
     margin: 20px;
-    padding: 0;
     background-color: #f9f9f9;
 }
 
 h1 {
-    color: #333;
+    color: #bc44c4;
+}
+
+.explainer {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 form {
@@ -18,17 +25,31 @@ form {
 label {
     margin-top: 10px;
     font-weight: bold;
+    color: #bc44c4;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #bc44c4;
 }
 
 button {
     margin-top: 20px;
     padding: 10px;
-    background-color: #007BFF;
+    background-color: #bc44c4;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #9a3aa5;
 }
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
