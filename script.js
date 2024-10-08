@@ -18,9 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
     const lakeOptionsDiv = document.getElementById('lake-options');
 
-    // Generate options dynamically based on the URL or show all lakes
+    // Check if 'all' is in the URL, and display all lakes if true
+    const showAllLakes = params.has('all');
+
+    // Generate options dynamically
     for (const lake in lakeData) {
-        if (params.has(lake) || !params.toString()) {  // Show specific or all lakes by default
+        if (showAllLakes || params.has(lake)) { // Show all lakes or specific lakes
+            // Create a wrapper div to group label and select for each lake
+            const lakeWrapper = document.createElement('div');
+            lakeWrapper.classList.add('lake-wrapper');
+
             // Create label for lake frequency selection
             const lakeLabel = document.createElement('label');
             lakeLabel.setAttribute('for', `${lake}-frequency`);
@@ -37,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <option value="monthly">Monthly</option>
             `;
 
-            // Append label and select to the form
-            lakeOptionsDiv.appendChild(lakeLabel);
-            lakeOptionsDiv.appendChild(lakeSelect);
+            // Append label and select to the wrapper
+            lakeWrapper.appendChild(lakeLabel);
+            lakeWrapper.appendChild(lakeSelect);
 
             // Create a hidden input to store Plus Code
             const hiddenPlusCode = document.createElement('input');
@@ -47,7 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
             hiddenPlusCode.setAttribute('id', `${lake}-plus-code`);
             hiddenPlusCode.setAttribute('name', `${lake}-plus-code`);
             hiddenPlusCode.setAttribute('value', lakeData[lake].plusCode);
-            lakeOptionsDiv.appendChild(hiddenPlusCode);
+            lakeWrapper.appendChild(hiddenPlusCode);
+
+            // Append the wrapper to the form
+            lakeOptionsDiv.appendChild(lakeWrapper);
         }
     }
 });
