@@ -94,7 +94,7 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
     }
 
     // Example POST request to send data to your backend
-    const url = "https://script.google.com/macros/s/AKfycby2Gy9Ph9kUq2UrdFIDXFOk2BA4ZjWrtf_DOuVU318a9_bleZkRnBOq5f0JGpHhxYOQ/exec";  // Replace with your actual URL
+    const url = "https://script.google.com/macros/s/AKfycbwMs_rvEmoIZ82PDzZB2GQqINUiuTHi9GtzLfDuDMeEC1sWHYmOQRQ00Nsf6qkPtLbr/exec";  // Replace with your actual URL
 
     fetch(url, {
         method: "POST",
@@ -103,14 +103,21 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
             "Content-Type": "application/json"
         }
     }).then(response => {
-        // Display Thank You message
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    }).then(responseText => {
+        console.log(responseText); // Log success response
         document.querySelector('.form-box').innerHTML = `
             <h1>Thank You!</h1>
             <p>Your preferences have been successfully submitted.</p>
         `;
     }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
         alert("Error: " + error);
     });
+    
 });
 
 // Email validation function
