@@ -2,11 +2,13 @@
 const lakeData = {
     'rainbow': {
         name: 'Rainbow Lake',
-        plusCode: '84VXVF2M+VX'
+        plusCode: '84VXVF2M+VX',
+        legalLevel: [0,1]
     },
     'silver': {
         name: 'Silver Lake',
-        plusCode: '84VXVF4F+8F'
+        plusCode: '84VXVF4F+8F',
+        legalLevel: 1
     },
     'higgins': {
         name: 'Higgins Lake',
@@ -77,6 +79,15 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
         hiddenPlusCode.setAttribute('name', `${lake}-plusCode`);
         hiddenPlusCode.setAttribute('value', lakeData[lake].plusCode);
         lakeFrequenciesDiv.appendChild(hiddenPlusCode);
+
+        // Create hidden inputs for the legal levels if they exist
+    if (lakeData[lake].legalLevel !== undefined) {
+        const legalLevels = document.createElement('input');
+        legalLevels.setAttribute('type', 'hidden');
+        legalLevels.setAttribute('name', `${lake}-legalLevels`);
+        legalLevels.setAttribute('value', lakeData[lake].legalLevel);
+        lakeFrequenciesDiv.appendChild(legalLevels);
+    }
     });
 
         // Add hidden inputs for first name, last name, and email
