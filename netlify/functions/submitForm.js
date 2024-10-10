@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
 
     try {
     // Forward data to Google Apps Script
-    const response = await fetch.default('https://script.google.com/macros/s/AKfycbzlSiWmJvDLiA5UgkGu2z5SXsJZR3pV3dD7lEhzzsLFvV1rKh1ZonB3jHh4CxTDvpM/exec', {
+    const response = await fetch.default('https://script.google.com/macros/s/AKfycbyb9Mb4Ss4uE1YsgJngIoDoCw_Hrr5ElWU6-Pqe-N_lfvthgT36EbasioWQv3QOqkkn/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
