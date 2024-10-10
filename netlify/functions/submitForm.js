@@ -1,6 +1,20 @@
 exports.handler = async (event, context) => {
     const fetch = await import('node-fetch');
 
+
+    // Handle preflight OPTIONS request
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+        statusCode: 200,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        },
+        body: '',
+        };
+    }
+
   if (event.httpMethod === 'POST') {
     console.log('Received POST request');
     const data = JSON.parse(event.body);
