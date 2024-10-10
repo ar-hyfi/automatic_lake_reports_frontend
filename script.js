@@ -80,14 +80,12 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
         hiddenPlusCode.setAttribute('value', lakeData[lake].plusCode);
         lakeFrequenciesDiv.appendChild(hiddenPlusCode);
 
-        // Create hidden inputs for the legal levels if they exist
-    if (lakeData[lake].legalLevel !== undefined) {
-        const legalLevels = document.createElement('input');
-        legalLevels.setAttribute('type', 'hidden');
-        legalLevels.setAttribute('name', `${lake}-legalLevels`);
-        legalLevels.setAttribute('value', lakeData[lake].legalLevel);
-        lakeFrequenciesDiv.appendChild(legalLevels);
-    }
+      // Always create hidden inputs for legal levels, even if it doesn't exist (use empty string if missing)
+      const legalLevels = document.createElement('input');
+      legalLevels.setAttribute('type', 'hidden');
+      legalLevels.setAttribute('name', `${lake}-legalLevels`);
+      legalLevels.setAttribute('value', lakeData[lake].legalLevel || ''); // Set as empty if no legalLevel
+      lakeFrequenciesDiv.appendChild(legalLevels);
     });
 
         // Add hidden inputs for first name, last name, and email
