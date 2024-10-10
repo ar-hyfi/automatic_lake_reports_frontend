@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
-
 exports.handler = async (event, context) => {
+    const fetch = await import('node-fetch');
+
   if (event.httpMethod === 'POST') {
     console.log('Received POST request');
     const data = JSON.parse(event.body);
@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
 
     try {
     // Forward data to Google Apps Script
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzlSiWmJvDLiA5UgkGu2z5SXsJZR3pV3dD7lEhzzsLFvV1rKh1ZonB3jHh4CxTDvpM/exec', {
+    const response = await fetch.default('https://script.google.com/macros/s/AKfycbzlSiWmJvDLiA5UgkGu2z5SXsJZR3pV3dD7lEhzzsLFvV1rKh1ZonB3jHh4CxTDvpM/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
