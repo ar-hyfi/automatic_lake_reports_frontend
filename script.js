@@ -93,8 +93,8 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
         data[key] = value;
     }
 
-    // Example POST request to send data to your backend
-    const url = "https://script.google.com/macros/s/AKfycbwMs_rvEmoIZ82PDzZB2GQqINUiuTHi9GtzLfDuDMeEC1sWHYmOQRQ00Nsf6qkPtLbr/exec";  // Replace with your actual URL
+    // Use the Netlify function URL instead of Google Apps Script URL
+    const url = "/.netlify/functions/submitForm";  // Replace with the correct Netlify function path
 
     fetch(url, {
         method: "POST",
@@ -117,7 +117,6 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
         console.error('There was a problem with the fetch operation:', error);
         alert("Error: " + error);
     });
-    
 });
 
 // Email validation function
