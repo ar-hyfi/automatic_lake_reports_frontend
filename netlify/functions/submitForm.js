@@ -23,21 +23,30 @@ exports.handler = async (event, context) => {
 
     return {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',  // Allow all domains
+          'Access-Control-Allow-Methods': 'POST, GET, OPTIONS', // Allow methods
+        },
         body: result,
       };
     } catch (error) {
-      // Log any errors during fetch
-      console.error('Error forwarding data to Google Apps Script:', error);
+      console.error('Error:', error);
 
       return {
         statusCode: 500,
-        body: 'Internal Server Error',
+        headers: {
+          'Access-Control-Allow-Origin': '*',  // Allow all domains
+        },
+        body: JSON.stringify({ error: 'Internal Server Error' }),
       };
     }
   } else {
     console.log('Received non-POST request');
     return {
       statusCode: 405,
+      headers: {
+        'Access-Control-Allow-Origin': '*',  // Allow all domains
+      },
       body: 'Method Not Allowed',
     };
   }
