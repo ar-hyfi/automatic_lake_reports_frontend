@@ -2,18 +2,39 @@
 const lakeData = {
     'rainbow': {
         name: 'Rainbow Lake',
-        plusCode: '84VXVF2M+VX',
+        plusCode: '86MQ48G2+8P96',
         legalLevel: [0,1]
     },
     'silver': {
         name: 'Silver Lake',
-        plusCode: '84VXVF4F+8F',
+        plusCode: '86MMMF4C+RG83',
         legalLevel: 1
     },
     'higgins': {
         name: 'Higgins Lake',
-        plusCode: '84VXVG6M+5H'
-    }
+        plusCode: '86PQC8MH+Q6V9'
+    },
+    'houghton': {
+        name: 'Houghton Lake',
+        plusCode: '86PQC655+4WM9'
+    },
+    'sunset': {
+        name: 'Sunset Lake',
+        plusCode: '86JP4F97+H83W'
+    },
+    'manistique': {
+        name: 'Manistique Lake',
+        plusCode: '86RP678F+JGRX'
+    },
+    'george': {
+        name: 'Lake George',
+        plusCode: '86HHWV98+X77R'
+    },
+    'posey': { 
+        name: 'Posey Lake',
+        plusCode: '86HQVMWR+87W9'
+    },
+
 };
 
 document.addEventListener('DOMContentLoaded', function() {
