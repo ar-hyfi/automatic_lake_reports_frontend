@@ -2,26 +2,43 @@ const fetch = require('node-fetch');
 
 exports.handler = async (event, context) => {
   if (event.httpMethod === 'POST') {
+    console.log('Received POST request');
     const data = JSON.parse(event.body);
+    console.log('Received data:', data);
 
+    try {
     // Forward data to Google Apps Script
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwMs_rvEmoIZ82PDzZB2GQqINUiuTHi9GtzLfDuDMeEC1sWHYmOQRQ00Nsf6qkPtLbr/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzlSiWmJvDLiA5UgkGu2z5SXsJZR3pV3dD7lEhzzsLFvV1rKh1ZonB3jHh4CxTDvpM/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
+    console.log('Response status from Google Apps Script:', response.status);
+
 
     const result = await response.text();
+    console.log('Response from Google Apps Script:', result);
+
     return {
-      statusCode: 200,
-      body: result,
-    };
+        statusCode: 200,
+        body: result,
+      };
+    } catch (error) {
+      // Log any errors during fetch
+      console.error('Error forwarding data to Google Apps Script:', error);
+
+      return {
+        statusCode: 500,
+        body: 'Internal Server Error',
+      };
+    }
   } else {
+    console.log('Received non-POST request');
     return {
       statusCode: 405,
-      body: "Method Not Allowed",
+      body: 'Method Not Allowed',
     };
   }
 };
