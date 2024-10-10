@@ -38,11 +38,13 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
     e.preventDefault();
 
     // Get email input value
-    const emailInput = document.getElementById('email');
-    const email = emailInput.value;
+        // Get name and email input values
+    const firstNameInput = document.getElementById('firstName').value;
+    const lastNameInput = document.getElementById('lastName').value;
+    const emailInput = document.getElementById('email').value;
 
     // Validate email before proceeding
-    if (!validateEmail(email)) {
+    if (!validateEmail(emailInput)) {
         alert("Please enter a valid email address.");
         return;
     }
@@ -76,6 +78,13 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
         hiddenPlusCode.setAttribute('value', lakeData[lake].plusCode);
         lakeFrequenciesDiv.appendChild(hiddenPlusCode);
     });
+
+        // Add hidden inputs for first name, last name, and email
+        lakeFrequenciesDiv.innerHTML += `
+        <input type="hidden" name="firstName" value="${firstNameInput}">
+        <input type="hidden" name="lastName" value="${lastNameInput}">
+        <input type="hidden" name="email" value="${emailInput}">
+    `;
 
     // Show the frequency selection form
     document.getElementById('frequency-selection-form').style.display = 'block';
