@@ -92,6 +92,7 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
     for (const [key, value] of formData.entries()) {
         data[key] = value;
     }
+    console.log(data, 'data');
 
     // Use the Netlify function URL instead of Google Apps Script URL
     const url = "https://magical-madeleine-43d341.netlify.app/.netlify/functions/submitForm";
