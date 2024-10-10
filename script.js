@@ -94,6 +94,10 @@ document.getElementById('lake-selection-form').addEventListener('submit', functi
 document.getElementById('frequency-selection-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
+    // Show spinner and hide button text
+    document.getElementById('submitBtnText').style.display = 'none';
+    document.getElementById('spinner').style.display = 'block';
+
     const formData = new FormData(e.target);
     const data = {};
 
@@ -126,6 +130,10 @@ document.getElementById('frequency-selection-form').addEventListener('submit', f
     }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
         alert("Error: " + error);
+
+            // Reset button back to original
+            document.getElementById('submitBtnText').style.display = 'block';
+            document.getElementById('spinner').style.display = 'none';
     });
 });
 
