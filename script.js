@@ -3,16 +3,16 @@ const lakeData = {
     'rainbow': {
         name: 'Rainbow Lake',
         plusCode: '86MQ48G2+8P96',
-        legalLevel: [0,1]
+        legalLevel: [585.85,585.95]
     },
     'silver': {
         name: 'Silver Lake',
         plusCode: '86MMMF4C+RG83',
-        legalLevel: 1
     },
     'higgins': {
         name: 'Higgins Lake',
-        plusCode: '86PQC8MH+Q6V9'
+        plusCode: '86PQC8MH+Q6V9',
+        legalLevel: 1153.61
     },
     'houghton': {
         name: 'Houghton Lake',
@@ -34,6 +34,11 @@ const lakeData = {
         name: 'Posey Lake',
         plusCode: '86HQVMWR+87W9'
     },
+    'indian': {
+        name: 'Indian Lake',
+        plusCode: '86QMXPR6+JRR2',
+        legalLevel: 612.32
+    }
 
 };
 
